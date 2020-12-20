@@ -2,7 +2,7 @@
   <div class="home">
     <h1>{{ message }}</h1>
      <div v-for="post in posts">
-       <h3> {{post.title}} </h3>
+       <h3>{{post.title}}</h3>
      </div>
   </div>
 </template>

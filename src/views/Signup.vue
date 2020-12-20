@@ -2,6 +2,7 @@
   <div class="signup">
     <form v-on:submit.prevent="submit()">
       <h1>Signup</h1>
+      <img v-bind:src="`https://http.cat/100`" width="700px">
       <ul>
         <li class="text-danger" v-for="error in errors">{{ error }}</li>
       </ul>
@@ -42,6 +43,7 @@ export default {
       password: "",
       passwordConfirmation: "",
       errors: [],
+      status: "",
     };
   },
   methods: {
@@ -59,6 +61,8 @@ export default {
         })
         .catch((error) => {
           this.errors = error.response.data.errors;
+          console.log(error.response.data);
+          this.status = error.response.status;
         });
     },
   },

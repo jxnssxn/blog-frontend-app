@@ -29,7 +29,7 @@ const routes = [
   },
   {
     path: "/posts",
-    name: "index",
+    name: "posts-index",
     component: PostIndex
   },
   {

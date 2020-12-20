@@ -1,10 +1,14 @@
 <template>
-  <div class="home">
+<div class="container">
+  <div class="posts-index">
     <h1>{{ message }}</h1>
     <div v-for="post in posts">
-      <p>{{ post }}</p>
+      <p>{{ post.title }}</p>
+       <p><img v-bind:src="post.image" v-bind:alt="post.title"></p>
+       <p>{{post.body}}</p>
     </div>
   </div>
+</div>
 </template>
 
 <style>
@@ -20,12 +24,14 @@ export default {
     };
   },
   created: function () {
+    console.log("posts index");
+
     this.postIndex();
   },
   methods: {
     postIndex: function () {
-      console.log();
-      axios.get("/api/posts").then((response) => {
+      console.log("posts index");
+      axios.get("api/posts").then((response) => {
         console.log(response.data);
         this.posts = response.data;
       });
